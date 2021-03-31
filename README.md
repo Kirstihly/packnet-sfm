@@ -21,7 +21,7 @@ This is also the official implementation of [**Neural Ray Surfaces for Self-Supe
 You need a machine with recent Nvidia drivers and a GPU with at least 6GB of memory (more for the bigger models at higher resolution). We recommend using docker (see [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker) instructions) to have a reproducible environment. To setup your environment, type in a terminal (only tested in Ubuntu 18.04):
 
 ```bash
-git clone https://github.com/TRI-ML/packnet-sfm.git
+git clone https://github.com/Kirstihly/packnet-sfm.git
 cd packnet-sfm
 # if you want to use docker (recommended)
 make docker-build
