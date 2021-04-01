@@ -77,14 +77,14 @@ NB: if you would rather not use docker, you could create a [conda](https://docs.
 
 ## Datasets
 
-Datasets are assumed to be downloaded in `data/datasets/<dataset-name>` (can be a symbolic link).
+Datasets are assumed to be downloaded in `/data/datasets/<dataset-name>` in docker (can be a symbolic link).
 
 ### Dense Depth for Autonomous Driving (DDAD)
 
 Together with PackNet, we introduce **Dense Depth for Automated Driving** ([DDAD](https://github.com/TRI-ML/DDAD)): a new dataset that leverages diverse logs from TRI's fleet of well-calibrated self-driving cars equipped with cameras and high-accuracy long-range LiDARs.  Compared to existing benchmarks, DDAD enables much more accurate 360 degree depth evaluation at range, see the official [DDAD repository](https://github.com/TRI-ML/DDAD) for more info and instructions. You can also download DDAD directly via:
 
 ```bash
-curl -s https://tri-ml-public.s3.amazonaws.com/github/DDAD/datasets/DDAD.tar | tar -xv -C data/datasets/
+curl -s https://tri-ml-public.s3.amazonaws.com/github/DDAD/datasets/DDAD.tar | tar -xv -C /data/datasets/
 ```
 
 ### KITTI
@@ -95,7 +95,7 @@ The full KITTI_raw dataset, as used in our experiments, can be directly download
 
 ```bash
 # KITTI_raw
-curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/KITTI_raw.tar | tar -xv -C data/datasets/
+curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/KITTI_raw.tar | tar -xv -C /data/datasets/
 ```
 
 ### Tiny DDAD/KITTI
@@ -104,9 +104,9 @@ For simple tests, we also provide a "tiny" version of [DDAD](https://tri-ml-publ
 
 ```bash
 # DDAD_tiny
-curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/DDAD_tiny.tar | tar -xv -C data/datasets/
+curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/DDAD_tiny.tar | tar -xv -C /data/datasets/
 # KITTI_tiny
-curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/KITTI_tiny.tar | tar -xv -C data/datasets/
+curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/KITTI_tiny.tar | tar -xv -C /data/datasets/
 ```
 ### OmniCam
 

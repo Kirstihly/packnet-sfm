@@ -28,17 +28,17 @@ datasets:
     train:
         batch_size: 1
         dataset: ['Image']
-        path: ['data/datasets/omnicam']
+        path: ['/data/datasets/omnicam']
         split: ['{:09}']
         depth_type: ['']
         repeat: [1]
     validation:
         dataset: ['KITTI']
-        path: ['data/datasets/KITTI_tiny']
+        path: ['/data/datasets/KITTI_tiny']
         split: ['kitti_tiny.txt']
         depth_type: ['velodyne']
     test:
         dataset: ['KITTI']
-        path: ['data/datasets/KITTI_tiny']
+        path: ['/data/datasets/KITTI_tiny']
         split: ['kitti_tiny.txt']
         depth_type: ['velodyne']
