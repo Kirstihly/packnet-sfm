@@ -114,7 +114,7 @@ The raw data for the catadioptric OmniCam dataset can be downloaded from the [Om
 
 ```bash
 # omnicam
-curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/OmniCam.tar | tar -xv -C data/datasets/
+curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/OmniCam.tar | tar -xv -C /data/datasets/
 ```
 
 The ray surface template we used for training on OmniCam can be found [here](https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/templates/omnicam_ray_template.npy). 
