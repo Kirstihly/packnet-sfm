@@ -23,17 +23,16 @@ You need a machine with recent Nvidia drivers and a GPU with at least 6GB of mem
 ```bash
 git clone https://github.com/Kirstihly/packnet-sfm.git
 cd packnet-sfm
-# if you want to use docker (recommended)
+# if you want to use docker
 make docker-build
+# pull pre-built docker (recommended)
+docker pull tjdahlke/packnet-sfm
 ```
 
-We will list below all commands as if run directly inside our container. To run any of the commands in a container, you can either start the container in interactive mode with `make docker-start-interactive` to land in a shell where you can type those commands, or you can do it in one step:
+To run any of the commands in a container, you can start the container in interactive mode with:
 
 ```bash
-# single GPU
-make docker-run COMMAND="some-command"
-# multi-GPU
-make docker-run-mpi COMMAND="some-command"
+docker run --name leying_packnet-sfm --cpus="8" --gpus device=3 -it --shm-size=444G -e AWS_DEFAULT_REGION -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e WANDB_API_KEY -e WANDB_ENTITY -e WANDB_MODE -e HOST_HOSTNAME= -e OMP_NUM_THREADS=1 -e KMP_AFFINITY="granularity=fine,compact,1,0" -e OMPI_ALLOW_RUN_AS_ROOT=1 -e OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1 -e NCCL_DEBUG=VERSION -e DISPLAY= -e XAUTHORITY -e NVIDIA_DRIVER_CAPABILITIES=all -v ~/.aws:/root/.aws -v /root/.ssh:/root/.ssh -v ~/.cache:/root/.cache -v /home/data/sfm:/data -v /mnt/fsx/:/mnt/fsx -v /dev/null:/dev/raw1394 -v /tmp:/tmp -v /tmp/.X11-unix/X0:/tmp/.X11-unix/X0 -v /var/run/docker.sock:/var/run/docker.sock -v /home/us000128/packnet-sfm:/workspace/packnet-sfm -w /workspace/packnet-sfm --privileged --ipc=host --network=host tjdahlke/packnet-sfm:latest bash
 ```
 
 For instance, to verify that the environment is setup correctly, you can run a simple overfitting test:
@@ -42,7 +41,7 @@ For instance, to verify that the environment is setup correctly, you can run a s
 # download a tiny subset of KITTI
 curl -s https://tri-ml-public.s3.amazonaws.com/github/packnet-sfm/datasets/KITTI_tiny.tar | tar xv -C /data/datasets/
 # in docker
-make docker-run COMMAND="python3 scripts/train.py configs/overfit_kitti.yaml"
+python3 scripts/train.py configs/overfit_kitti.yaml
 ```
 
 If you want to use features related to [AWS](https://aws.amazon.com/) (for dataset access)
