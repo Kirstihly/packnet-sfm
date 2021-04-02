@@ -27,7 +27,7 @@ DOCKER_OPTS := \
 			-v ~/.aws:/root/.aws \
 			-v /root/.ssh:/root/.ssh \
 			-v ~/.cache:/root/.cache \
-			-v /data:/data \
+			-v /home/data/sfm:/data \
 			-v /mnt/fsx/:/mnt/fsx \
 			-v /dev/null:/dev/raw1394 \
 			-v /tmp:/tmp \
